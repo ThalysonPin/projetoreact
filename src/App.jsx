@@ -2,16 +2,20 @@ import { useState } from 'react'
 import './App.css'
 import FilterButton from './components/FilterButton';
 import Form from './components/Form';
+import ModalTest from './components/ModalTest';
 import Todo from './components/Todo'
 
 
 function App(props) {
-  
+  const [tasks, setTasks] = useState(props.tasks)
+
+
   function addTask(name){
-    alert(name)
+    const newTask = { id: "id", name, completed : false};
+    setTasks([...tasks, newTask])
   }
 
-  const taskList = props.tasks.map((task) => (
+  const taskList = tasks.map((task) => (
   <Todo 
   name={task.name} 
   id={task.id} 
@@ -23,6 +27,8 @@ function App(props) {
 
   return (
 <div className="todoapp stack-large">
+  
+      <button onClick={<ModalTest/>}>Click here!</button>
       <h1>TodoMatic</h1>
       
       <Form addTask={addTask} />

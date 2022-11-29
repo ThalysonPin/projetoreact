@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 
+import { ChakraProvider } from '@chakra-ui/react'
+
 const DATA = [
   { id: "todo-0", name: "Eat", completed: true },
   { id: "todo-1", name: "Sleep", completed: false },
@@ -10,7 +12,9 @@ const DATA = [
 ]
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <App tasks={DATA}/>
+  <ChakraProvider>
+    <App tasks={DATA}/>
+  </ChakraProvider>
 )
 
 
